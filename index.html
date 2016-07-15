@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html ng-app="notesApp">
-  <head>
+
+<head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -8,22 +9,25 @@
     <link rel="stylesheet" href="/styles/base.css">
     <link rel="stylesheet" href="/styles/styles.css">
     <title>Very nice Notes app</title>
-  </head>
-  <body ng-controller="MainCtrl">
+</head>
 
-    <input type="text" ng-model="note.title" placeholder="Title">
-    <input type="text" ng-model="note.content" placeholder="Add notes here">
-    <button type="button" ng-click="saveNote(note)">Add note</button>
-
+<body ng-controller="MainCtrl">
+    <div class="userInput">
+        <input id="noteTitle" type="text" ng-model="note.title" placeholder="Note Title">
+        <form>
+            <textarea id="noteContent" type="text" ng-model="note.content" placeholder="Add notes here"></textarea>
+        </form>
+        <button id="niceButton" type="button" ng-click="saveNote(note)">Add note</button>
+    </div>
     <div class="notesList">
-      <ul>
-        <li ng-repeat="noteDisplay in notes">
-        <a href="#">
-          <h2>{{noteDisplay.title}}</h2>
-          <p>{{noteDisplay.content}}</p>
-        </a>
-      </li>
-      </ul>
+        <ul>
+            <li ng-repeat="noteDisplay in notes">
+                <a href="#">
+                    <h2>{{noteDisplay.title}}</h2>
+                    <p>{{noteDisplay.content}}</p>
+                </a>
+            </li>
+        </ul>
 
     </div>
 
@@ -32,5 +36,6 @@
     <script src="scripts/app.js"></script>
     <script src="scripts/controllers/MainCtrl.js"></script>
     <script src="scripts/services/noteService.js"></script>
-  </body>
+</body>
+
 </html>
